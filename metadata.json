@@ -1,0 +1,7 @@
+{
+  "name": "FlowFront AI",
+  "description": "The AI Receptionist for SMBs - automatically book appointments, answer FAQs, and capture leads 24/7.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowFront AI | The AI Receptionist for SMBs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      html {
+        scroll-padding-top: 100px;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #030310;
+        color: #ffffff;
+        margin: 0;
+        overflow-x: hidden;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gradient-text {
+        background: linear-gradient(to right, #4f80ff, #9d59ff, #ff59d4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% auto;
+        animation: shine 5s linear infinite;
+      }
+      @keyframes shine {
+        to {
+          background-position: 200% center;
+        }
+      }
+      .gradient-btn {
+        background: linear-gradient(to right, #4f80ff, #9d59ff);
+        transition: all 0.3s ease;
+      }
+      .gradient-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -10px rgba(79, 128, 255, 0.5);
+      }
+      .custom-shadow {
+        box-shadow: 0 0 40px rgba(79, 128, 255, 0.1);
+      }
+      
+      /* Scroll Reveal Classes */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Animated Background Elements */
+      .bg-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(120px);
+        z-index: -1;
+        opacity: 0.35;
+        pointer-events: none;
+      }
+      
+      @keyframes orb-float {
+        0% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(10vw, 5vh) scale(1.1); }
+        66% { transform: translate(-5vw, 10vh) scale(0.9); }
+        100% { transform: translate(0, 0) scale(1); }
+      }
+
+      @keyframes orb-float-alt {
+        0% { transform: translate(0, 0) scale(1.1); }
+        50% { transform: translate(-8vw, -10vh) scale(0.8); }
+        100% { transform: translate(0, 0) scale(1.1); }
+      }
+
+      .animate-orb {
+        animation: orb-float 25s infinite ease-in-out;
+      }
+      .animate-orb-alt {
+        animation: orb-float-alt 30s infinite ease-in-out;
+      }
+
+      @keyframes gentle-hover {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+      }
+      .hovering-card {
+        animation: gentle-hover 4s ease-in-out infinite;
+      }
+
+      /* Fluid & Particle Animations for Hero */
+      @keyframes fluid-morph {
+        0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: scale(1); }
+        50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: scale(1.1) rotate(5deg); }
+      }
+      .animate-fluid {
+        animation: fluid-morph 15s infinite ease-in-out;
+      }
+
+      @keyframes drift-particle {
+        0% { transform: translateY(0) translateX(0); opacity: 0; }
+        10% { opacity: 0.5; }
+        90% { opacity: 0.5; }
+        100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+      }
+      .particle {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        pointer-events: none;
+        animation: drift-particle linear infinite;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #030310;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e1b4b;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #312e81;
+      }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
