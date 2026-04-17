@@ -1,0 +1,99 @@
+"use client";
+
+import { Reveal } from "../Reveal";
+
+export function ClosingCTA() {
+  const handleCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  return (
+    <section
+      aria-label="Closing call to action"
+      className="relative overflow-hidden"
+      style={{ padding: "clamp(120px, 18vw, 200px) clamp(24px, 5vw, 80px)" }}
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute"
+        style={{
+          top: "50%",
+          left: "50%",
+          width: "min(1000px, 95vw)",
+          height: "min(1000px, 95vw)",
+          transform: "translate(-50%, -50%)",
+          background:
+            "radial-gradient(circle at center, var(--color-accent-glow) 0%, rgba(59,130,246,0.06) 40%, rgba(6,11,20,0) 70%)",
+          filter: "blur(60px)",
+        }}
+      />
+
+      <div
+        className="relative mx-auto flex flex-col items-center text-center"
+        style={{ maxWidth: "880px" }}
+      >
+        <Reveal>
+          <p
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
+              lineHeight: 1.2,
+              color: "var(--color-text-muted)",
+              fontWeight: 400,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            Your competitors are still sending calls to voicemail.
+          </p>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <p
+            className="mt-4 md:mt-6"
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "clamp(2.25rem, 5vw, 4rem)",
+              lineHeight: 1.1,
+              color: "var(--color-white)",
+              fontWeight: 400,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            You won&apos;t be.
+          </p>
+        </Reveal>
+        <Reveal delay={0.3}>
+          <div className="mt-12 flex flex-col items-center">
+            <a
+              href="#contact"
+              onClick={handleCtaClick}
+              className="inline-flex items-center gap-2 rounded-full text-base font-semibold transition-all duration-300"
+              style={{
+                background: "var(--color-accent)",
+                color: "var(--color-bg)",
+                padding: "18px 32px",
+                fontFamily: "var(--font-sans)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 16px 40px var(--color-accent-glow)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "";
+                e.currentTarget.style.boxShadow = "";
+              }}
+            >
+              Get Started — It&apos;s Free to Try
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+            <p className="mt-4 text-sm" style={{ color: "var(--color-text-dim)" }}>
+              2-week free trial. Setup in 48 hours. Cancel anytime.
+            </p>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
